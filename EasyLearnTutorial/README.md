@@ -14,6 +14,14 @@ USE CASES
   * Inidvidual tutorial
 
 
+VIEWS
+-----
+
+  * List of tutorial series
+  * List of tutorials
+  * Tutorial
+
+
 ENTITIES
 --------
 
