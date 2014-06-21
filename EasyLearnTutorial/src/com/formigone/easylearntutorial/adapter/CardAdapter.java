@@ -2,6 +2,7 @@ package com.formigone.easylearntutorial.adapter;
 
 import java.util.List;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +12,11 @@ import com.formigone.easylearntutorial.model.Card;
 
 public class CardAdapter extends BaseAdapter {
     protected List<Card> mCards;
-    
-    public CardAdapter(List<Card> cards) {
+    protected Context mContext;
+
+    public CardAdapter(Context context, List<Card> cards) {
 	super();
+	mContext = context;
 	mCards = cards;
     }
 
@@ -35,12 +38,13 @@ public class CardAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 	Card card = (Card) getItem(position);
-	
+
 	if (convertView == null) {
-	    LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+	    LayoutInflater inflater = LayoutInflater.from(mContext);
 	    convertView = inflater.inflate(card.getLayout(), null);
 	}
-	
+
+	card.fill(convertView);
 	return convertView;
     }
 }
